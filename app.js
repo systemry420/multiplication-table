@@ -1,5 +1,6 @@
 const input = document.querySelector('input'),
 button = document.querySelector('button'),
+display = document.querySelector('.display'),
 num1El = document.getElementById('num1'),
 num2El = document.getElementById('num2');
 
@@ -21,6 +22,7 @@ const getExercise = () => {
 
     num1El.innerText = num1
     num2El.innerText = num2
+    // display.classList.add('animate__animated' ,'animate__bounce','animate__bounceInDown')
     input.focus()
 }
 
@@ -44,8 +46,8 @@ const checkAnswer = (e) => {
 input.addEventListener('keyup', checkAnswer)
 button.addEventListener('click', (e) => {
     e.preventDefault()
-    // console.log(e);
     input.style['background-color'] = 'white'
+    display.classList.remove('animate__animated' ,'animate__bounce','animate__bounceInDown')
     input.value = ''
     button.disabled = true
     button.classList.add('disabled')
