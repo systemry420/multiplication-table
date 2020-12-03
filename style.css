@@ -45,6 +45,12 @@ input {
     width: 100%;
     overflow: hidden;
     text-align: center;
+    border: none;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+input:focus {
+    outline-width: 0;
 }
 
 input::-webkit-outer-spin-button,
@@ -64,6 +70,12 @@ button {
     color: #fefefe;
     font-size: 1.4em;
     border: none;
-    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.4);
+    /* box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.4); */
     outline-width: 0;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+button.disabled {
+    opacity: 0.7;
 }

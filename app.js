@@ -1,39 +1,54 @@
 const input = document.querySelector('input'),
-    num1El = document.getElementById('num1'),
-    num2El = document.getElementById('num2');
+button = document.querySelector('button'),
+num1El = document.getElementById('num1'),
+num2El = document.getElementById('num2');
 
 let product = 0
 
-const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const data = [2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 const init = () => {
     getExercise()
-    
 }
 
 const getExercise = () => {
     let num1 = data[getRandom()],
         num2 = data[getRandom()];
+    num1 = num1 == undefined? 0 : num1
+    num2 = num2 == undefined? 0 : num2
 
     product = num1 * num2
 
     num1El.innerText = num1
     num2El.innerText = num2
+    input.focus()
 }
 
 const getRandom = () => {
-    return Math.floor(Math.random() * data.length)
+    return Math.round(Math.random() * data.length)
 }
 
 const checkAnswer = (e) => {
     const answer = e.target.value
     if(answer == product) {
-        console.log('yes')
+        input.style['background-color'] = '#43de43'
+        button.disabled = false
+        button.classList.remove('disabled')
     }
-    else
-        console.log('no')
+    else{
+        input.style['background-color'] = '#ff5050'
+        button.disabled = true
+    }
 }
 
 input.addEventListener('keyup', checkAnswer)
-
+button.addEventListener('click', (e) => {
+    e.preventDefault()
+    // console.log(e);
+    input.style['background-color'] = 'white'
+    input.value = ''
+    button.disabled = true
+    button.classList.add('disabled')
+    getExercise()
+})
 init()
