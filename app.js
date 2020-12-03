@@ -22,7 +22,7 @@ const getExercise = () => {
 
     num1El.innerText = num1
     num2El.innerText = num2
-    // display.classList.add('animate__animated' ,'animate__bounce','animate__bounceInDown')
+    display.classList.add('bounce')
     input.focus()
 }
 
@@ -47,7 +47,7 @@ input.addEventListener('keyup', checkAnswer)
 button.addEventListener('click', (e) => {
     e.preventDefault()
     input.style['background-color'] = 'white'
-    display.classList.remove('animate__animated' ,'animate__bounce','animate__bounceInDown')
+    display.classList.remove('bounce')
     input.value = ''
     button.disabled = true
     button.classList.add('disabled')
