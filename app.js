@@ -33,12 +33,12 @@ const getRandom = () => {
 const checkAnswer = (e) => {
     const answer = e.target.value
     if(answer == product) {
-        input.style['background-color'] = '#43de43'
+        input.style['background-color'] = '#72ff72'
         button.disabled = false
         button.classList.remove('disabled')
     }
     else{
-        input.style['background-color'] = '#ff5050'
+        input.style['background-color'] = '#ff7d7d'
         button.disabled = true
     }
 }

@@ -31,6 +31,7 @@ body {
     display: flex;
     justify-content: space-evenly;
     color: #333;
+    position: relative;
 }
 
 .display.bounce {
@@ -39,13 +40,13 @@ body {
 
 @keyframes bounceIn {
     0% {
-        margin-top: -80px;
+        top: -40px;
     }
     50% {
-        margin-top: -20px;
+        top: -10px;
     }
     100% {
-        margin-top: 0;
+        top: 0px;
     }
 }
 
@@ -88,8 +89,8 @@ body {
 form {
     width: 70%;
     justify-content: center;
-    position: absolute;
-    top: 30%;
+    /* position: absolute;
+    top: 30%; */
 }
 
 input {
