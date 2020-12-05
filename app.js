@@ -16,7 +16,7 @@ const getExercise = () => {
     let num1 = data[getRandom()],
         num2 = data[getRandom()];
     num1 = num1 == undefined? 0 : num1
-    num2 = num2 == undefined? 0 : num2
+    num2 = num2 == undefined? 1 : num2
 
     product = num1 * num2
 
