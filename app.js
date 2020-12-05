@@ -1,15 +1,52 @@
 const input = document.querySelector('input'),
-button = document.querySelector('button'),
+next = document.querySelector('#next'),
+cover = document.querySelector('.cover'),
+app = document.querySelector('.app'),
+intro = document.querySelector('.intro'),
+timer = document.querySelector('#timer'),
+start = document.querySelector('#start'),
 display = document.querySelector('.display'),
 num1El = document.getElementById('num1'),
 num2El = document.getElementById('num2');
 
-let product = 0
+let product = 0, score = 0
 
 const data = [2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 const init = () => {
+    startGame()
+}
+
+const startGame = () => {
+    startTimer()
+    app.style.opacity = 1
+    cover.style.display = 'none'
+    input.disabled = false
     getExercise()
+}
+
+const gameOver = () => {
+    intro.innerHTML = `<p>You scored ${score} in 30 seconds!</p>`
+    score = 0
+    input.value = ''
+    input.disabled = true
+    app.style.opacity = 0.7
+    // display.innerHTML =`<span id="num1">0</span>
+    //                     <span id="mul">x</span>
+    //                     <span id="num2">0</span>`
+    cover.style.display = 'flex'
+    app.style.opacity = 0.3
+}
+
+const startTimer = () => {
+    let time = 30
+    let interval = setInterval(() => {
+        if(time == 0) {
+            clearInterval(interval)
+            gameOver()
+        }
+        timer.innerText = time--
+    }, 1000);
 }
 
 const getExercise = () => {
@@ -34,23 +71,25 @@ const checkAnswer = (e) => {
     const answer = e.target.value
     if(answer == product) {
         input.style['background-color'] = '#72ff72'
-        button.disabled = false
-        button.classList.remove('disabled')
+        next.disabled = false
+        next.classList.remove('disabled')
     }
     else{
         input.style['background-color'] = '#ff7d7d'
-        button.disabled = true
+        next.disabled = true
     }
 }
 
 input.addEventListener('keyup', checkAnswer)
-button.addEventListener('click', (e) => {
+next.addEventListener('click', (e) => {
     e.preventDefault()
+    score++
     input.style['background-color'] = 'white'
     display.classList.remove('bounce')
     input.value = ''
-    button.disabled = true
-    button.classList.add('disabled')
+    next.disabled = true
+    next.classList.add('disabled')
     getExercise()
 })
-init()
+
+start.addEventListener('click', init)

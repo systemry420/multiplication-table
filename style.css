@@ -6,6 +6,8 @@
 
 body,
 .app,
+.cover,
+.intro,
 form {
     display: flex;
     flex-direction: column;
@@ -14,7 +16,31 @@ form {
 body {
     min-height: 100vh;
     align-items: center;
+    justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
+    background-image: url('https://previews.123rf.com/images/alexoakenman/alexoakenman1808/alexoakenman180800003/112234604-vector-colorful-mathematics-background-element-in-flat-style.jpg');
+    background-size: cover;
+}
+
+.cover {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: #eee;
+    z-index: 1;
+    /* display: none; */
+}
+
+.intro p {
+    margin: 1em;
+    font-size: 1.4em;
+}
+
+.intro button {
+    cursor: pointer;
 }
 
 .app {
@@ -23,6 +49,8 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2em;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* opacity: 0.3; */
 }
 
 .display {
@@ -32,6 +60,12 @@ body {
     justify-content: space-evenly;
     color: #333;
     position: relative;
+    color: #eee;
+}
+
+#timer {
+    color: #fff;
+    font-size: 2em;
 }
 
 .display.bounce {
@@ -104,7 +138,7 @@ input {
     overflow: hidden;
     text-align: center;
     border: none;
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.6);
 }
 
 input:focus {
@@ -129,9 +163,9 @@ button {
     border: none;
     outline-width: 0;
     opacity: 1;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.3s ease;
 }
 
 button.disabled {
-    opacity: 0.5;
+    opacity: 0.7;
 }

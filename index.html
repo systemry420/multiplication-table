@@ -7,15 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="cover">
+        <div class="intro">
+            <p>
+                How many can you solve in 30 seconds?
+            </p>
+        </div>
+        <button id="start">Start Game</button>
+    </div>
     <div class="app">
         <div class="display" class="">
             <span id="num1">0</span>
             <span id="mul">x</span>
             <span id="num2">0</span>
         </div>
+        <div id="timer">0</div>
         <form>
             <input min="0" max="100" placeholder="Answer" type="number" />
-            <button type="submit" class="disabled" disabled>Next</button>
+            <button id="next" type="submit" class="disabled" disabled>Next</button>
         </form>
     </div>
     <script src="app.js"></script>
