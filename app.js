@@ -30,12 +30,10 @@ const gameOver = () => {
     score = 0
     input.value = ''
     input.disabled = true
-    app.style.opacity = 0.7
-    // display.innerHTML =`<span id="num1">0</span>
-    //                     <span id="mul">x</span>
-    //                     <span id="num2">0</span>`
+    app.style.opacity = 1
+    num1.innerText = '0'
+    num2.innerText = '0'
     cover.style.display = 'flex'
-    app.style.opacity = 0.3
 }
 
 const startTimer = () => {

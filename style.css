@@ -28,15 +28,16 @@ body {
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.9);
     color: #eee;
     z-index: 1;
     /* display: none; */
 }
 
 .intro p {
-    margin: 1em;
+    margin: 48px;
     font-size: 1.4em;
+    text-align: center;
 }
 
 .intro button {
@@ -164,6 +165,7 @@ button {
     outline-width: 0;
     opacity: 1;
     transition: opacity 0.3s ease;
+    animation: bounceIn 1s ease;
 }
 
 button.disabled {
