@@ -19,8 +19,8 @@ const init = () => {
 
 const startGame = () => {
     startTimer()
-    app.style.opacity = 1
-    cover.style.display = 'none'
+    updateStyle(app, 'opacity', 1)
+    updateStyle(cover, 'display', 'none')
     input.disabled = false
     getExercise()
 }
@@ -30,10 +30,10 @@ const gameOver = () => {
     score = 0
     input.value = ''
     input.disabled = true
-    app.style.opacity = 1
+    updateStyle(app, 'opacity', 1)
     num1.innerText = '0'
     num2.innerText = '0'
-    cover.style.display = 'flex'
+    updateStyle(cover, 'display', 'flex')
 }
 
 const startTimer = () => {
@@ -68,21 +68,25 @@ const getRandom = () => {
 const checkAnswer = (e) => {
     const answer = e.target.value
     if(answer == product) {
-        input.style['background-color'] = '#72ff72'
+        updateStyle(input, 'background-color', '#72ff72')
         next.disabled = false
         next.classList.remove('disabled')
     }
     else{
-        input.style['background-color'] = '#ff7d7d'
+        updateStyle(input, 'background-color', '#ff7d7d')
         next.disabled = true
     }
+}
+
+const updateStyle = (el, property, value) => {
+    el.style[property] = value
 }
 
 input.addEventListener('keyup', checkAnswer)
 next.addEventListener('click', (e) => {
     e.preventDefault()
     score++
-    input.style['background-color'] = 'white'
+    updateStyle(input, 'background-color', 'white')
     display.classList.remove('bounce')
     input.value = ''
     next.disabled = true
